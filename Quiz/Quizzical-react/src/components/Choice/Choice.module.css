@@ -1,0 +1,50 @@
+.answer {
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.pick {
+    background-color: #d5e359;
+}
+
+.good {
+    background-color: #59e390a3;
+}
+
+.bad {
+    background-color: rgba(255, 99, 71, 0.29);
+}
+
+.same {
+    background-color: #59e390a3;
+}
+
+
+.choice {
+    margin-left: 0.5em;
+    border: 0.771045px solid #4D5B9E;
+    border-radius: 7.71045px;
+    padding: 0 0.2em;
+}
+.choice:hover {
+    cursor:pointer;
+}
+
+.selected {
+    background-color: #D6DBF5;
+}
+
+.correct_answer {
+    background-color: #94D7A2;
+}
+
+.wrong_answer {
+    background-color: #F8BCBC;
+}
+.check-answer{
+    align-self: center;
+}

@@ -1,0 +1,22 @@
+
+button {
+    color: #F5F7FB;
+    background: #4D5B9E;
+    text-align: center;
+    border-radius: 10px;
+    border: none;
+    padding: .5em 1.5em;
+    transition: .5s ease;
+    cursor: pointer;
+}
+
+button:hover,
+button:focus {
+    background: transparent;
+    border: 1px solid #4D5B9E;
+    box-shadow: 0 0 10px 0 #4D5B9E inset,
+                0 0 10px 4px #4D5B9E;
+    border-radius: 10px;
+    color:#293264
+    
+}

@@ -1,23 +1,17 @@
-import Choice from './Choice'
+import Choice from '../Choice/Choice'
 import { useState, useEffect } from 'react'
 import { nanoid } from 'nanoid'
+import styles from './Question.module.css'
 
 function Question({choices, handleClick, id, question, setAnswers}){
 
     const [c, setC] = useState([])
-    const [isAllowed, setIsAllowed] = useState(true)
+    // const [isAllowed, setIsAllowed] = useState(true)
 
     function getChoiceElements() {
         setC(choices.map(choice => ({questionID:id, choice: choice, choiceId: nanoid(), isSelected: false })))
     }
-
-    // loop through each choice object
-        //  check if id matches the id of the choice triggering onclick
-            //
             
-
-
-
     function toggleSelected(id, qId){
 
         
@@ -75,9 +69,9 @@ function Question({choices, handleClick, id, question, setAnswers}){
     }
 
     return(
-        <div className="container">
-            <p className="question">{question}</p>
-            <div className="answers">
+        <div className={styles.container}>
+            <p className={styles.question}>{question}</p>
+            <div className={styles.answers}>
                 {choiceElements()}
             </div>
         </div>

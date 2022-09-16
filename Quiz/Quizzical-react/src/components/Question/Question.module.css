@@ -1,0 +1,12 @@
+.question {
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: 700;
+    border-bottom: 0.79px solid #DBDEF0;
+    text-align: left;
+}
+
+.answers {
+    font-family: 'Space Mono', monospace;
+    display:flex;
+
+}
