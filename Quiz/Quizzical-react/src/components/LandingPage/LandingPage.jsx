@@ -1,6 +1,6 @@
 import styles from './LandingPage.module.css'
 
-function Landing({gameOver, startQuiz}){
+function Landing({startQuiz}){
 
     return(
         <div className={styles.start}>

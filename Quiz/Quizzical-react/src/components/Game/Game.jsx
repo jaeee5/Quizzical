@@ -8,12 +8,10 @@ let QuestionElements = []
 
 function Game({gameOver, setGameOver}) {
 
-    // const [questionsArray, setQuestionsArray] = useState([])
     const [questions, setQuestions] = useState([])
-    const [answers, setAnswers] = useState([])
+    // const [answers, setAnswers] = useState([])
     
     
-
     
     useEffect(()=>{
         const url = "https://opentdb.com/api.php?amount=5&difficulty=easy&type=multiple"
@@ -27,7 +25,8 @@ function Game({gameOver, setGameOver}) {
                     correct: q.correct_answer,
                     choices: [...q.incorrect_answers, q.correct_answer].sort(function (a, b) {
                         return a.toLowerCase().localeCompare(b.toLowerCase())}),
-                    id: nanoid()
+                    id: nanoid(),
+                    answer:""
                 }
             }))
         }
@@ -36,13 +35,16 @@ function Game({gameOver, setGameOver}) {
     },[])
 
     function handleClick(choiceid, questionid, choice) {
-
+        setQuestions(prevQuestions => {
+            return prevQuestions.map(prevQuestion =>{
+                    return prevQuestion.id === questionid ? 
+                        {...prevQuestion, answer:choice} :
+                        prevQuestion
+            })})
     }
 
 
-
-    function getQuestionsElements(){
-        QuestionElements = questions.map(question => {
+    const QuestionElements = questions.map(question => {
         return (
             <Question 
                 key={question.id} 
@@ -50,16 +52,13 @@ function Game({gameOver, setGameOver}) {
                 question={question.question} 
                 choices={question.choices} 
                 handleClick={handleClick}
-                setAnswers={setAnswers}
             />
         )
-        })
-        return QuestionElements
-    }
+    })
 
     return (
         <div>
-            {getQuestionsElements()}
+            {QuestionElements}
             <button 
             className={styles.button}
             >
