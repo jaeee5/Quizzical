@@ -5,7 +5,6 @@ import styles from './App.module.css'
 
 function App(){
 
-    const [gameOver, setGameOver] = useState(true)
     const [startGame, setStartGame] = useState(true)
 
     function startQuiz() {
@@ -18,10 +17,9 @@ function App(){
             {/* <img className={styles.logo1} src={logo1} alt="" /> */}
             {startGame
                 ?
-                <Landing startQuiz={startQuiz} gameOver={gameOver} />
+                <Landing startQuiz={startQuiz} />
                 :
                 <Game 
-                    gameOver={startGame} 
                     setStartGame={setStartGame}
                 />
             }

@@ -11,5 +11,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 3em
+    padding: 2em;
+    margin:0;
+    background: #F5F7FB;
 }

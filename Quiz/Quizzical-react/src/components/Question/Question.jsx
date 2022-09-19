@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import { nanoid } from 'nanoid'
 import styles from './Question.module.css'
 
-function Question({choices, handleClick, id, question}){
+function Question({choices, endGame, handleClick, id, question, questionObj, setPoints}){
 
     const [c, setC] = useState([])
 
@@ -29,17 +29,20 @@ function Question({choices, handleClick, id, question}){
             <Choice
                 key={choice.choiceId}
                 choice={choice.choice}
+                endGame={endGame}
                 questionId={id}
+                questionAnswer={questionObj.correct}
                 choiceId={choice.choiceId}
                 handleClick={handleClick}
                 isSelected={choice.isSelected}
+                setPoints={setPoints}
                 toggleSelected={toggleSelected}
             />
         )
     
 
     return(
-        <div className={styles.container}>
+        <div className={styles.question_container}>
             <p className={styles.question}>{question}</p>
             <div className={styles.answers}>
                 {choiceElements}

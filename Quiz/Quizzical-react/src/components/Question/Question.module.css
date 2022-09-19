@@ -1,16 +1,33 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500;700&family=Space+Mono&display=swap');
+
+
+
 .question {
+    margin-bottom: .5em;
+    color: #293264;
+    font-size: 1rem;
     font-family: 'Fira Sans', sans-serif;
     font-weight: 700;
-    border-bottom: 0.79px solid #DBDEF0;
+    line-height: 1.6;
     text-align: left;
 }
 
 .answers {
+    color:#293264;
+    font-size: 0.8rem;
     font-family: 'Space Mono', monospace;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.3;
+    text-align: center;
     display:flex;
+    
 
 }
 
-.container {
-    border: 1px solid red;
+.question_container {
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+    border-bottom: 1px solid #DBDEF0;
 }

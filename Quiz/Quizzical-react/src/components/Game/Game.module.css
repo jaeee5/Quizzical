@@ -20,3 +20,22 @@ button:focus {
     color:#293264
     
 }
+.checkAnswers {
+    text-align: center;
+}
+.game {
+    display: flex;
+    flex-direction: column;
+}
+.bottom {
+    text-align: center;
+}
+
+.bottomBox {
+    display: flex;
+    justify-content: space-between;
+}
+
+.bottomBox p {
+    color: #293264;
+}

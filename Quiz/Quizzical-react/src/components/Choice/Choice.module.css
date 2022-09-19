@@ -28,10 +28,17 @@
     margin-left: 0.5em;
     border: 0.771045px solid #4D5B9E;
     border-radius: 7.71045px;
-    padding: 0 0.2em;
+    padding: 0.2em 0.2em;
+    background-color: #F5F7FB;
 }
 .choice:hover {
     cursor:pointer;
+}
+
+.selected,
+.correct_answer,
+.wrong_answer {
+    border:none;
 }
 
 .selected {

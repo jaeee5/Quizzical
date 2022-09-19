@@ -3,13 +3,13 @@ import Question from '../Question/Question'
 import { nanoid } from "nanoid"
 import styles from './Game.module.css'
 
-let QuestionElements = []
 
-
-function Game({gameOver, setGameOver}) {
+function Game({ setStartGame}) {
 
     const [questions, setQuestions] = useState([])
-    // const [answers, setAnswers] = useState([])
+    const [points, setPoints] = useState(0)
+    const [endGame, setEndGame] =  useState(false)
+    
     
     
     
@@ -43,27 +43,55 @@ function Game({gameOver, setGameOver}) {
             })})
     }
 
+    function handleAnswers(){
+        setEndGame(true)
+        questions.forEach((obj)=>{
+            if (obj.answer == obj.correct){
+                setPoints(prev => prev + 1)
+            }
+        })
+    
+    }
+
 
     const QuestionElements = questions.map(question => {
         return (
             <Question 
                 key={question.id} 
                 id={question.id} 
+                setPoints={setPoints}
                 question={question.question} 
+                questionObj={question}
                 choices={question.choices} 
                 handleClick={handleClick}
+                endGame={endGame}
             />
         )
     })
 
     return (
-        <div>
+        <div className={styles.game}>
             {QuestionElements}
-            <button 
-            className={styles.button}
-            >
-            Check Answers
-            </button>
+            <div className={styles.bottom}>
+                {endGame ? 
+                    <div className={styles.bottomBox}>
+                        <p>You scored {points}/{questions.length} correct answers </p>
+                        <button
+                            onClick={()=>setStartGame(true)}
+                            className={styles.button}
+                        >
+                            Play Again
+                        </button>
+                    </div>
+                        :
+                    <button 
+                        className={styles.button}
+                        onClick={handleAnswers}
+                    >
+                        Check Answers
+                    </button>
+                    }       
+            </div>
         </div>
     )
 }

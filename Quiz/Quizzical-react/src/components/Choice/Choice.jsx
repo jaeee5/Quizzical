@@ -1,23 +1,45 @@
 import styles from './Choice.module.css'
 
-function Choice({choice, choiceId, questionId, handleClick, isSelected, toggleSelected}){
+function Choice({choice, choiceId, endGame, questionId, handleClick, isSelected, toggleSelected, setPoints, questionAnswer}){
 
-    const styless = {
-        backgroundColor: isSelected ? "#D6DBF5" : "#F5F7FB"
+    function render(c){
+
+        return(
+            <div 
+                className={`${styles.choice} ${c}`}
+                onClick={() => {
+                    handleClick(choiceId, questionId, choice)
+                    toggleSelected(choiceId,questionId)
+                }}
+            >
+                {choice}
+            </div>
+        )
+    } 
+
+    if (!endGame){
+        if (isSelected){
+            return render(styles.selected)
+        }
+        else {
+            return render("")
+        }
+
+    } else {
+        if(isSelected){
+            if (choice === questionAnswer){
+                return render(styles.correct_answer)
+            }
+            return render(styles.wrong_answer)
+        } else if (choice === questionAnswer){
+            return render(styles.correct_answer)
+        } else {
+            return render("")
+        }
     }
 
-    return(
-        <div 
-            className={styles.choice}
-            onClick={() => {
-                handleClick(choiceId, questionId, choice)
-                toggleSelected(choiceId,questionId)
-            }}
-            style={styless}
-        >
-            {choice}
-        </div>
-    )
+    
+
 }
 
 export default Choice
