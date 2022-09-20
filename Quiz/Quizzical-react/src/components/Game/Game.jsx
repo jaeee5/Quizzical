@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react'
 import Question from '../Question/Question'
 import { nanoid } from "nanoid"
+import { decode } from "he"
 import styles from './Game.module.css'
 
 
-function Game({ setStartGame}) {
+function Game({ setStartGame, gameSettings}) {
 
     const [questions, setQuestions] = useState([])
     const [points, setPoints] = useState(0)
@@ -14,15 +15,16 @@ function Game({ setStartGame}) {
     
     
     useEffect(()=>{
-        const url = "https://opentdb.com/api.php?amount=5&difficulty=easy&type=multiple"
+
+        const url = `https://opentdb.com/api.php?amount=${gameSettings.amount}&difficulty=${gameSettings.difficulty}&${gameSettings.type}`
 
         async function getQuestions(){
             const res = await fetch(url)
             const data = await res.json()
             setQuestions(data.results.map(q => {
                 return {
-                    question: q.question,
-                    correct: q.correct_answer,
+                    question: decode(q.question),
+                    correct: decode(q.correct_answer),
                     choices: [...q.incorrect_answers, q.correct_answer].sort(function (a, b) {
                         return a.toLowerCase().localeCompare(b.toLowerCase())}),
                     id: nanoid(),
@@ -34,7 +36,7 @@ function Game({ setStartGame}) {
         getQuestions()
     },[])
 
-    function handleClick(choiceid, questionid, choice) {
+    function handleClick(questionid, choice) {
         setQuestions(prevQuestions => {
             return prevQuestions.map(prevQuestion =>{
                     return prevQuestion.id === questionid ? 
@@ -45,8 +47,8 @@ function Game({ setStartGame}) {
 
     function handleAnswers(){
         setEndGame(true)
-        questions.forEach((obj)=>{
-            if (obj.answer == obj.correct){
+        questions.forEach((q)=>{
+            if (q.answer == q.correct){
                 setPoints(prev => prev + 1)
             }
         })
@@ -59,7 +61,6 @@ function Game({ setStartGame}) {
             <Question 
                 key={question.id} 
                 id={question.id} 
-                setPoints={setPoints}
                 question={question.question} 
                 questionObj={question}
                 choices={question.choices} 

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500;700&family=Space+Mono&display=swap');
 
 button {
     color: #F5F7FB;
@@ -38,4 +39,5 @@ button:focus {
 
 .bottomBox p {
     color: #293264;
+    font-weight: 500;
 }

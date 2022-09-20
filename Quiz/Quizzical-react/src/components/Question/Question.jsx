@@ -1,14 +1,15 @@
 import Choice from '../Choice/Choice'
 import { useState, useEffect } from 'react'
 import { nanoid } from 'nanoid'
+import { decode } from "he"
 import styles from './Question.module.css'
 
-function Question({choices, endGame, handleClick, id, question, questionObj, setPoints}){
+function Question({choices, endGame, handleClick, id, question, questionObj}){
 
     const [c, setC] = useState([])
 
     function getChoiceElements() {
-        setC(choices.map(choice => ({questionID:id, choice: choice, choiceId: nanoid(), isSelected: false })))
+        setC(choices.map(choice => ({questionID:id, choice: decode(choice), choiceId: nanoid(), isSelected: false })))
     }
             
     function toggleSelected(id, qId){
@@ -35,7 +36,6 @@ function Question({choices, endGame, handleClick, id, question, questionObj, set
                 choiceId={choice.choiceId}
                 handleClick={handleClick}
                 isSelected={choice.isSelected}
-                setPoints={setPoints}
                 toggleSelected={toggleSelected}
             />
         )

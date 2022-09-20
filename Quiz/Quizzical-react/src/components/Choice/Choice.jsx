@@ -1,6 +1,6 @@
 import styles from './Choice.module.css'
 
-function Choice({choice, choiceId, endGame, questionId, handleClick, isSelected, toggleSelected, setPoints, questionAnswer}){
+function Choice({choice, choiceId, endGame, questionId, handleClick, isSelected, toggleSelected,questionAnswer}){
 
     function render(c){
 
@@ -8,7 +8,7 @@ function Choice({choice, choiceId, endGame, questionId, handleClick, isSelected,
             <div 
                 className={`${styles.choice} ${c}`}
                 onClick={() => {
-                    handleClick(choiceId, questionId, choice)
+                    handleClick(questionId, choice)
                     toggleSelected(choiceId,questionId)
                 }}
             >
@@ -37,9 +37,6 @@ function Choice({choice, choiceId, endGame, questionId, handleClick, isSelected,
             return render("")
         }
     }
-
-    
-
 }
 
 export default Choice
