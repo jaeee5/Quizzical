@@ -4,7 +4,7 @@ import { nanoid } from 'nanoid'
 import { decode } from "he"
 import styles from './Question.module.css'
 
-function Question({choices, endGame, handleClick, id, question, questionObj}){
+function Question({ choices, endGame, handleClick, id, question, questionObj, amount}){
 
     const [c, setC] = useState([])
 
@@ -43,8 +43,8 @@ function Question({choices, endGame, handleClick, id, question, questionObj}){
 
     return(
         <div className={styles.question_container}>
-            <p className={styles.question}>{question}</p>
-            <div className={styles.answers}>
+            <p className={amount === "5" ? styles.question : styles.question_more}>{question}</p>
+            <div className={amount === "5" ? styles.answers : styles.answers_more}>
                 {choiceElements}
             </div>
         </div>

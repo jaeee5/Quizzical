@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500;700&family=Space+Mono&display=swap');
 
+
 .start h1 {
     font-size: 2rem;
     font-family: 'Fira Sans', sans-serif;
@@ -43,7 +44,7 @@
     margin-bottom: 1em;
 }
 
-button {
+.button {
     color: #F5F7FB;
     background: #4D5B9E;
     text-align: center;
@@ -55,12 +56,51 @@ button {
     cursor: pointer;
 }
 
-button:hover,
-button:focus {
+.button:hover,
+.button:focus {
     background: transparent;
     border: 1px solid #4D5B9E;
     box-shadow: 0 0 10px 0 #4D5B9E inset,
                 0 0 10px 4px #4D5B9E;
     border-radius: 10px;
     color:#293264;
+}
+
+@media (min-width:600px) {
+    
+    .start h1 {
+        font-size:2.5rem;
+    }
+    
+    .start p {
+        font-size: 1.25rem;
+    }
+
+    .dropdown {
+        font-size: 1rem;
+    }
+
+    .button {
+        font-size: 1.25rem;
+    }
+}
+
+@media (min-width:800px) {
+    
+    .start h1 {
+        font-size:4rem;
+        letter-spacing: 3px;
+    }
+    
+    .start p {
+        font-size: 1.5rem;
+    }
+
+    .dropdown {
+        font-size: 1.25rem;
+    }
+
+    .button {
+        font-size: 1.5rem;
+    }
 }

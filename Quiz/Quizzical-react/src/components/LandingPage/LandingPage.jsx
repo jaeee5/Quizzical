@@ -21,7 +21,7 @@ function Landing({startQuiz, changeAmount, changeDifficulty, changeType}){
         { value: "medium", label: "Medium difficulty" },
         { value: "hard", label: "Hard difficulty" },
     ]
-
+    
     return(
         <div className={styles.start}>
             <h1>Quizzical</h1>
@@ -43,7 +43,7 @@ function Landing({startQuiz, changeAmount, changeDifficulty, changeType}){
                 />
                 <Dropdown 
                     className={styles.dropdown}
-                    placeholder="Number of questions"
+                    placeholder="Number of Questions"
                     options={amountOptions}
                     value=""
                     onChange={value => changeAmount(value)}

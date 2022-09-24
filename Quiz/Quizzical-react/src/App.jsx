@@ -2,6 +2,9 @@ import { useState} from 'react'
 import Landing from './components/LandingPage/LandingPage'
 import Game from './components/Game/Game'
 import styles from './App.module.css'
+// import purple from './assets/purple.svg'
+// import yellow from './assets/yellow.svg'
+
 
 function App(){
 
@@ -45,7 +48,7 @@ function App(){
 
     return(
         <main className={styles.app}>
-            {/* <img className={styles.logo1} src={logo1} alt="" /> */}
+            {/* <img className={styles.yellow} src={purple} alt="" /> */}
             {startGame
                 ?
                 <Landing 
@@ -60,7 +63,7 @@ function App(){
                     gameSettings={gameSettings}
                 />
             }
-            {/* <img className={styles.logo2} src={logo1} alt="" /> */}
+            {/* <img className={styles.purple} src={yellow} alt="" /> */}
         </main>
     )
 }

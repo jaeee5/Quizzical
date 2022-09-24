@@ -66,6 +66,7 @@ function Game({ setStartGame, gameSettings}) {
                 choices={question.choices} 
                 handleClick={handleClick}
                 endGame={endGame}
+                amount={gameSettings.amount}
             />
         )
     })
@@ -86,7 +87,7 @@ function Game({ setStartGame, gameSettings}) {
                     </div>
                         :
                     <button 
-                        className={styles.button}
+                        className={gameSettings.amount === "5" ? styles.button : styles.button_more }
                         onClick={handleAnswers}
                     >
                         Check Answers

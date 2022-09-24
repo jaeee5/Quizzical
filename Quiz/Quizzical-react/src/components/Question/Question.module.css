@@ -26,8 +26,47 @@
 
 }
 
+.question_more {
+    margin-bottom: .5em;
+    color: #293264;
+    font-size: 0.8rem;
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: 700;
+    line-height: 1.6;
+    text-align: left;
+}
+
+.answers_more {
+    color:#293264;
+    font-size: 0.6rem;
+    font-family: 'Space Mono', monospace;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.3;
+    text-align: center;
+    display:flex;
+}
+
 .question_container {
     padding-bottom: 1em;
     margin-bottom: 1em;
     border-bottom: 1px solid #DBDEF0;
+}
+
+@media (min-width:600px) {
+    .question{
+        font-size: 1.1rem;
+    }
+    .answers {
+        font-size: 0.9rem;
+    }
+}
+
+@media (min-width:800px) {
+    .question{
+        font-size: 1.2em;
+    }
+    .answers {
+        font-size: 1rem;
+    }
 }
